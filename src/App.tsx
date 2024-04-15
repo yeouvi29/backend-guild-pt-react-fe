@@ -4,9 +4,10 @@ import clsx from "clsx";
 
 import reactLogo from "./assets/react.svg";
 import nodeLogo from "./assets/node.svg";
-import rainbow from "./assets/rainbow.png";
+
 import { TodoItemType } from "./types";
 import TodoItem from "./components/TodoItem/TodoItem";
+import TitleBox from "./components/TitleBox/TitleBox";
 
 import styles from "./App.module.css";
 import React from "react";
@@ -126,10 +127,7 @@ function App() {
         </a>
       </header>
       <main className={styles.main}>
-        <div className={styles.titleBox}>
-          <img src={rainbow} className={styles.rainbow} alt="Rainbow" />
-          <h1 className={styles.title}>Todo list</h1>
-        </div>
+        <TitleBox key={todos.length} />
         <form className={styles.form} onSubmit={addTodo}>
           <input
             className={styles.input}
