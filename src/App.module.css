@@ -22,7 +22,7 @@
   display: flex;
   justify-content: center;
   margin-top: 5rem;
-  height: 60px;
+  height: 4rem;
   gap: 1rem;
 }
 
@@ -31,7 +31,7 @@
   flex-direction: column;
   justify-content: center;
   margin-top: 5rem;
-  gap: 40px;
+  gap: 2.5rem;
 }
 
 .logo {
@@ -49,7 +49,7 @@
 
 .input {
   box-sizing: border-box;
-  height: 42px;
+  height: 3rem;
   flex-grow: 1;
   min-width: 300px;
   padding: 0.5em;
@@ -93,7 +93,7 @@
   color: #888;
 }
 button[type="submit"] {
-  height: 42px;
+  height: 3rem;
 }
 
 .errorMessage {
@@ -118,5 +118,11 @@ button[type="submit"] {
 
   a:last-of-type .logo {
     animation: 10s linear infinite alternate logo-wiggle-reverse;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .input {
+    min-width: 0;
   }
 }
