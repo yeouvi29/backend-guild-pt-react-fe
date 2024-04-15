@@ -17,12 +17,29 @@
   }
 }
 
+.header {
+  top: 0;
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+  height: 60px;
+  gap: 1rem;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 5rem;
+  gap: 40px;
+}
+
 .logo {
-  height: 6em;
-  padding: 1.5em;
+  height: 100%;
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em var(--main-color-light));
 }
@@ -31,9 +48,18 @@
 }
 
 .input {
+  box-sizing: border-box;
+  height: 42px;
   flex-grow: 1;
   min-width: 300px;
   padding: 0.5em;
+  border: 1px solid var(--main-color-light);
+  border-radius: 4px;
+}
+
+.input:focus {
+  outline: none;
+  border: 2px solid var(--main-color);
 }
 
 .ul {
@@ -44,15 +70,30 @@
   padding: 0;
 }
 
-.form {
-  padding: 2em 0;
+.titleBox {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+}
+.title {
+  margin: 0;
+}
+.form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   gap: 1em;
 }
-
+.rainbow {
+  width: 150px;
+  text-align: left;
+}
 .read-the-docs {
   color: #888;
+}
+button[type="submit"] {
+  height: 42px;
 }
 
 .errorMessage {

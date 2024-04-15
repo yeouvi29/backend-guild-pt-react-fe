@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { motion, useIsPresent } from "framer-motion";
+import { motion } from "framer-motion";
 
 import { TodoItemType } from "../../types";
 import Checkbox from "../Checkbox/Checkbox";
@@ -14,20 +14,14 @@ const TodoItem = ({
   updateTodo: () => void;
   deleteTodo: () => void;
 }) => {
-  const isPresent = useIsPresent();
   const animations = {
-    initial: { scale: 0, opacity: 0 },
-    animate: { scale: 1, opacity: 1 },
-    exit: { scale: 0, opacity: 0 },
-    transition: { type: "spring", stiffness: 900, damping: 40 },
+    initial: { scale: 0, opacity: 0, x: "100%" },
+    animate: { scale: 1, opacity: 1, x: "0%" },
+    exit: { scale: 0, opacity: 0, x: "100%" },
+    transition: { type: "spring", stiffness: 600, damping: 40 },
   };
   return (
-    <motion.li
-      {...animations}
-      layout
-      className={styles.li}
-      style={{ position: isPresent ? "static" : "absolute" }}
-    >
+    <motion.li {...animations} layout className={styles.li}>
       <Checkbox
         id={item.id}
         onChange={updateTodo}

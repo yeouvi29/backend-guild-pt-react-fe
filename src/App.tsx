@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
 
 import reactLogo from "./assets/react.svg";
 import nodeLogo from "./assets/node.svg";
+import rainbow from "./assets/rainbow.png";
 import { TodoItemType } from "./types";
 import TodoItem from "./components/TodoItem/TodoItem";
 
@@ -107,8 +108,8 @@ function App() {
   }, []);
 
   return (
-    <main className={styles.main}>
-      <div>
+    <Fragment>
+      <header className={styles.header}>
         <a href="https://react.dev" target="_blank">
           <img
             src={reactLogo}
@@ -123,52 +124,57 @@ function App() {
             alt="Node logo"
           />
         </a>
-      </div>
-      <h1>React + Node</h1>
-      <form className={styles.form} onSubmit={addTodo}>
-        <input
-          className={styles.input}
-          ref={inputRef}
-          value={inputText}
-          type="text"
-          onChange={handleInput}
-        />
-        <button type="submit">add Todo</button>
-      </form>
+      </header>
+      <main className={styles.main}>
+        <div className={styles.titleBox}>
+          <img src={rainbow} className={styles.rainbow} alt="Rainbow" />
+          <h1 className={styles.title}>Todo list</h1>
+        </div>
+        <form className={styles.form} onSubmit={addTodo}>
+          <input
+            className={styles.input}
+            ref={inputRef}
+            value={inputText}
+            type="text"
+            onChange={handleInput}
+          />
+          <button type="submit">add Todo</button>
+        </form>
 
-      {todos && todos.length !== 0 ? (
         <ul className={styles.ul}>
           <AnimatePresence>
-            {todos.map((todo) => (
-              <TodoItem
-                key={todo.id}
-                item={todo}
-                updateTodo={() => {
-                  updateTodo(todo.id, todo.completed);
-                }}
-                deleteTodo={() => {
-                  deleteTodo(todo.id);
-                }}
-              />
-            ))}
+            {todos &&
+              todos.length &&
+              todos.map((todo) => (
+                <TodoItem
+                  key={todo.id}
+                  item={todo}
+                  updateTodo={() => {
+                    updateTodo(todo.id, todo.completed);
+                  }}
+                  deleteTodo={() => {
+                    deleteTodo(todo.id);
+                  }}
+                />
+              ))}
           </AnimatePresence>
         </ul>
-      ) : null}
 
-      <AnimatePresence>
-        {message && (
-          <motion.div
-            initial={{ opacity: 0, x: "-50%", y: "200%" }}
-            animate={{ opacity: 1, x: "-50%", y: "0%" }}
-            exit={{ opacity: 0, x: "-50%", y: "200%" }}
-            transition={{ duration: 0.25 }}
-            className={styles.errorMessage}
-          >
-            <p>{message}</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </main>
+        <AnimatePresence>
+          {message && (
+            <motion.div
+              initial={{ opacity: 0, x: "-50%", y: "200%" }}
+              animate={{ opacity: 1, x: "-50%", y: "0%" }}
+              exit={{ opacity: 0, x: "-50%", y: "200%" }}
+              transition={{ duration: 0.25 }}
+              className={styles.errorMessage}
+            >
+              <p>{message}</p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </main>
+    </Fragment>
   );
 }
 
