@@ -1,0 +1,81 @@
+@keyframes logo-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes logo-wiggle-reverse {
+  0%,
+  100% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em var(--main-color-light));
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em var(--second-color-light));
+}
+
+.input {
+  flex-grow: 1;
+  min-width: 300px;
+  padding: 0.5em;
+}
+
+.ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  padding: 0;
+}
+
+.form {
+  padding: 2em 0;
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.errorMessage {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  font-weight: 700;
+  background-color: #ef4444;
+  padding: 0.5rem;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.errorMessage > * {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a .logo {
+    animation: 30s linear infinite logo-rotate;
+  }
+
+  a:last-of-type .logo {
+    animation: 10s linear infinite alternate logo-wiggle-reverse;
+  }
+}
