@@ -136,7 +136,7 @@ function App() {
             type="text"
             onChange={handleInput}
           />
-          <button type="submit">add Todo</button>
+          <button type="submit">ADD</button>
         </form>
 
         <ul className={styles.ul}>
