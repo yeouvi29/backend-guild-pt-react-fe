@@ -30,7 +30,7 @@ To learn more about React.js, take a look at the following resources:
 - [React.js Documentation](https://react.dev/reference/react) - learn about React.js features and API.
 - [Learn React.js](https://react.dev/learn) - an interactive React.js tutorial.
 
-## Deploy on Vercel
+## Deploy on Netlify
 You can check the deployed site on [https://backend-guild-react.netlify.app/](https://backend-guild-react.netlify.app/)
 
 There are many ways to deploy React.js app, but I chose [Netlify](https://www.netlify.com/) for this project.
