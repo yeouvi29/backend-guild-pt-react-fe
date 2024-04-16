@@ -37,7 +37,7 @@ function App() {
         task: inputText,
         completed: false,
       };
-      const res = await fetch(`${API_URL}/api/addTodo`, {
+      const res = await fetch(`${API_URL}/api/todos`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
